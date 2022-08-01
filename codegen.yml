@@ -2,16 +2,16 @@ overwrite: true
 schema: "http://localhost:8080/graphql"
 documents: "./**/*.graphql"
 generates:
-  src/generated/graphql.tsx:
+  generated/graphql.tsx:
     plugins:
       - typescript
       - typescript-operations
       - typescript-react-apollo
     config:
       withResultType: true
-  ./graphql.schema.json:
+  graphql-output/graphql.schema.json:
     plugins:
       - "introspection"
-  ./src/fragmentTypes.json:
+  graphql-output/fragmentTypes.json:
     plugins:
       - fragment-matcher
