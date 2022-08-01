@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prepare": "husky install",
+    "precommit": "lint-staged",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "prettify": "prettier --write './**/*.{js,jsx,ts,tsx,scss,md,json}' --config ./.prettierrc"
+    "prettify": "prettier --write './**/*.{js,jsx,ts,tsx,scss,md,json}' --config ./.prettierrc",
+    "lint": "next lint -- --fix"
   },
   "dependencies": {
     "@apollo/client": "^3.6.9",
