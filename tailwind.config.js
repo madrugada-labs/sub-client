@@ -1,5 +1,9 @@
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: [
+    "./components/**/*.{js,jsx,ts,tsx}",
+    "./pages/**/*.{js,jsx,ts,tsx}",
+    "./utils/**/*.{js,jsx,ts,tsx}",
+  ],
   theme: {
     extend: {
       colors: {
@@ -10,11 +14,15 @@ module.exports = {
         grey: "#928CA6",
         txtGrey: "#DADADA",
         errorRed: "#E63D70",
+        bg: "#1F1D26",
+      },
+      width: {
+        lg: "1240px",
       },
       screens: {
         sm: "476px",
         md: "768px",
-        lg: "1024px",
+        lg: "1280px",
         xl: "1440px",
       },
       fontFamily: {

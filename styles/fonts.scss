@@ -1,18 +1,6 @@
-@font-face {
-  font-family: "Poppins";
-  src: url("/fonts/Poppins-Regular.ttf");
-  font-style: medium;
-  font-weight: 400;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Poppins";
-  src: url("/fonts/Poppins-Medium.ttf");
-  font-style: medium;
-  font-weight: 500;
-  font-display: swap;
-}
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap");
 
 @layer base {
   html {

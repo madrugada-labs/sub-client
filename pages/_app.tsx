@@ -5,7 +5,7 @@ import type { AppProps } from "next/app";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <div className="min-h-[100vh] min-w-[100vw]">
+    <div className="min-h-[100vh] min-w-[100vw] bg-bg">
       <Component {...pageProps} />
     </div>
   );
