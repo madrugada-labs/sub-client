@@ -1,0 +1,33 @@
+@layer utilities {
+  .hoverEff {
+    @apply cursor-pointer transition-opacity duration-200 hover:opacity-80;
+  }
+  .hoverEff-txt {
+    @apply hover:text-accent cursor-pointer transition-colors duration-200;
+  }
+  .filter-white {
+    filter: brightness(0%) invert(100%);
+  }
+  .filter-accent {
+    filter: brightness(0%) invert(35%) sepia(35%) saturate(6390%)
+      hue-rotate(237deg) brightness(101%) contrast(88%);
+  }
+  .rowLoading-animation {
+    background: linear-gradient(115.68deg, #150a0e -16.61%, #1c1115 109.1%);
+    background-size: 800px 100px;
+    animation-name: moving-gradient;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+  }
+}
+
+@-webkit-keyframes moving-gradient {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
