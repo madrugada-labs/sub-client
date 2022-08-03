@@ -8,7 +8,6 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: ["raw.githubusercontent.com"],
-    unoptimized: true,
   },
   typescript: {
     ignoreBuildErrors: true,
