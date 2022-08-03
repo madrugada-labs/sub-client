@@ -1,8 +1,11 @@
-import type { NextPage } from "next";
-import { Header } from "@/components/layout/Header";
-import { Img } from "@/components/common/Img";
-import Image from "next/image";
 import { FunctionComponent } from "react";
+
+import type { NextPage } from "next";
+import Image from "next/image";
+
+import { Img } from "@/components/common/Img";
+import { Header } from "@/components/layout/Header";
+import { JobSearch } from "@/components/pages/home/JobSearch";
 import { TwitterPosts } from "@/components/pages/home/TwitterPost";
 
 const Home: NextPage = () => {
@@ -12,27 +15,15 @@ const Home: NextPage = () => {
       <section className="mx-auto w-full w-full px-10 pt-[55px] lg:w-lg lg:px-0">
         <InfluencerInfoSection />
       </section>
-      <section className="mx-auto w-full  px-10 pt-[112px] lg:w-lg lg:px-0">
+      <section className="mx-auto w-full px-10 pt-[112px] lg:w-lg lg:px-0">
         <AboutWithTwitterPosts />
       </section>
       <section className="w-full pt-[96px]">
         <MoneyEarnInfo />
       </section>
-      <section className="w-full pt-[116px]">
-        <StartEndorsing />
+      <section className="mx-auto w-full px-10 pt-[116px] lg:w-lg lg:px-0">
+        <JobSearch />
       </section>
-    </div>
-  );
-};
-
-const StartEndorsing = () => {
-  return (
-    <div>
-      <h2>
-        Start endorsing colleagues
-        <br />
-        Or start looking for jobs
-      </h2>
     </div>
   );
 };

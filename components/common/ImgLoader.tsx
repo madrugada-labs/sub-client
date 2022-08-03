@@ -1,3 +1,3 @@
 export const ImgLoader = () => {
-	return `/icons/generic/loading-spin.svg`;
+  return `/icons/generic/loading-spin.svg`;
 };

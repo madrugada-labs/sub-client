@@ -3054,6 +3054,11 @@ import-sort-parser@^6.0.0:
   resolved "https://registry.npmjs.org/import-sort-parser/-/import-sort-parser-6.0.0.tgz"
   integrity sha512-H5L+d6HnqHvThB0GmAA3/43Sv74oCwL0iMk3/ixOv0LRJ69rCyHXeG/+UadMHrD2FefEmgPIWboEPAG7gsQrkA==
 
+import-sort-style-react@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/import-sort-style-react/-/import-sort-style-react-5.1.0.tgz#81d3d1a47208716c2e3ead461f9becf6753b9672"
+  integrity sha512-Huhy19WpJar6DjEZLbRz1K54qiOVW6ihYcK2tYaSIufUeZyak94TauIn/rXteAdcwDX4mLwyf6++bcT/Ok4E1g==
+
 import-sort-style@^6.0.0:
   version "6.0.0"
   resolved "https://registry.npmjs.org/import-sort-style/-/import-sort-style-6.0.0.tgz"
@@ -4209,11 +4214,6 @@ prettier-plugin-import-sort@^0.0.7:
     import-sort-config "^6.0.0"
     import-sort-parser-babylon "^6.0.0"
     import-sort-parser-typescript "^6.0.0"
-
-prettier-plugin-tailwindcss@^0.1.13:
-  version "0.1.13"
-  resolved "https://registry.npmjs.org/prettier-plugin-tailwindcss/-/prettier-plugin-tailwindcss-0.1.13.tgz"
-  integrity sha512-/EKQURUrxLu66CMUg4+1LwGdxnz8of7IDvrSLqEtDqhLH61SAlNNUSr90UTvZaemujgl3OH/VHg+fyGltrNixw==
 
 prettier@^2.7.1:
   version "2.7.1"
