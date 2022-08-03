@@ -1,16 +1,113 @@
 import type { NextPage } from "next";
 import { Header } from "@/components/layout/Header";
 import { Img } from "@/components/common/Img";
+import Image from "next/image";
+import { FunctionComponent } from "react";
+import { TwitterPosts } from "@/components/pages/home/TwitterPost";
 
 const Home: NextPage = () => {
   return (
     <div className="bg-bg pt-[144px]">
       <Header />
-      <section className="mx-auto w-full pt-[55px] lg:w-lg">
+      <section className="mx-auto w-full w-full px-10 pt-[55px] lg:w-lg lg:px-0">
         <InfluencerInfoSection />
       </section>
-      <section className="mt-[112px]"></section>
+      <section className="mx-auto w-full  px-10 pt-[112px] lg:w-lg lg:px-0">
+        <AboutWithTwitterPosts />
+      </section>
+      <section className="w-full pt-[96px]">
+        <MoneyEarnInfo />
+      </section>
+      <section className="w-full pt-[116px]">
+        <StartEndorsing />
+      </section>
     </div>
+  );
+};
+
+const StartEndorsing = () => {
+  return (
+    <div>
+      <h2>
+        Start endorsing colleagues
+        <br />
+        Or start looking for jobs
+      </h2>
+    </div>
+  );
+};
+
+const MoneyEarnInfo = () => {
+  return (
+    <div className="w-full">
+      <div className="flex w-full flex-col gap-3">
+        <h5 className="text-center font-sora text-[18px] leading-[22px] tracking-[-0.03em] text-primary">
+          ENDORSING PEOPLE
+        </h5>
+        <h2 className="text-center font-sora text-[42px] font-[600] leading-[53px] tracking-[-0.03em]">
+          How Dorse works
+        </h2>
+      </div>
+      <div className="flex items-center justify-center">
+        <h2 className="mt-16 w-fit font-mono text-[39px] leading-[51px] tracking-[-0.03em]">
+          <span className="text-[#A4EB99]">if</span>(
+          <span className="text-[#AA9CFF]">recommendedPerson.isYou</span>()){" "}
+          {"{"}
+          <br />
+          &nbsp;&nbsp;&nbsp;yourMoney.add(
+          <span className="text-[#D880EA]">getReferralFees</span>
+          ())
+          <br />
+          {"}"}
+        </h2>
+      </div>
+    </div>
+  );
+};
+
+const AboutWithTwitterPosts = () => {
+  return (
+    <div className="flex items-start gap-[34px]">
+      <div className="flex h-[300px] min-w-[351px] flex-col justify-between rounded-2xl border border-[#D9D9D9] px-6 pt-9 pb-6">
+        <div>
+          <h4 className="font-sora text-[28px] leading-[35px] tracking-[-0.03em]">
+            About Abril Zucchi
+          </h4>
+          <p className="mt-3 pr-[7px] font-mono leading-[24px] tracking-[-0.03em] text-[#C4C4C4]">
+            Solidity Blockchain Developer made in Buenos Aires, web3 builder and
+            crypto enthusiast
+          </p>
+        </div>
+        <ul className="flex items-center gap-[14px]">
+          <InfluencerIcon
+            icon={"twitter.png"}
+            link={"https://twitter.com/abruzuc"}
+          />
+          <InfluencerIcon
+            icon={"github.png"}
+            link={"https://github.com/abrilzucchi"}
+          />
+          <InfluencerIcon
+            icon={"linkedin.png"}
+            link={"https://www.linkedin.com/in/abrilzucchi/"}
+          />
+        </ul>
+      </div>
+      <TwitterPosts />
+    </div>
+  );
+};
+
+const InfluencerIcon: FunctionComponent<{ icon: string; link: string }> = ({
+  icon,
+  link,
+}) => {
+  return (
+    <li className="h-[42px] w-[42px]">
+      <button className="h-full w-full rounded-full bg-white p-[7px] transition-opacity duration-200 hover:opacity-80">
+        <Image width={28} height={28} src={`/icons/${icon}`} />
+      </button>
+    </li>
   );
 };
 
