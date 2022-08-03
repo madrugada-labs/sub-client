@@ -58,7 +58,7 @@ const MoneyEarnInfo = () => {
 
 const AboutWithTwitterPosts = () => {
   return (
-    <div className="flex items-start gap-[34px]">
+    <div className="grid grid-cols-[351px,min-content] overflow-auto gap-[34px] hide-scrollbar">
       <div className="flex h-[300px] min-w-[351px] flex-col justify-between rounded-2xl border border-[#D9D9D9] px-6 pt-9 pb-6">
         <div>
           <h4 className="font-sora text-[28px] leading-[35px] tracking-[-0.03em]">
@@ -84,7 +84,7 @@ const AboutWithTwitterPosts = () => {
           />
         </ul>
       </div>
-      <TwitterPosts />
+      <TwitterPosts id={1} />
     </div>
   );
 };
@@ -95,9 +95,14 @@ const InfluencerIcon: FunctionComponent<{ icon: string; link: string }> = ({
 }) => {
   return (
     <li className="h-[42px] w-[42px]">
-      <button className="h-full w-full rounded-full bg-white p-[7px] transition-opacity duration-200 hover:opacity-80">
+      <a
+        rel="noopener noreferrer"
+        target="_blank"
+        href={link}
+        className="h-full w-full flex items-center justify-center rounded-full bg-white p-[7px] transition-opacity duration-200 hover:opacity-80"
+      >
         <Image width={28} height={28} src={`/icons/${icon}`} />
-      </button>
+      </a>
     </li>
   );
 };

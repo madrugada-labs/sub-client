@@ -20,6 +20,7 @@
     "axios": "^0.27.2",
     "clsx": "^1.2.1",
     "dayjs": "^1.11.4",
+    "graphql": "^16.5.0",
     "lodash": "^4.17.21",
     "next": "12.2.3",
     "react": "18.2.0",
@@ -28,6 +29,7 @@
     "react-hook-form": "^7.34.0",
     "react-textarea-autosize": "^8.3.4",
     "react-toastify": "^9.0.7",
+    "react-twitter-embed": "^4.0.4",
     "sass": "^1.54.0",
     "sharp": "^0.30.7"
   },

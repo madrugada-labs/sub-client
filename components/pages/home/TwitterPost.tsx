@@ -1,19 +1,26 @@
 import { FunctionComponent } from "react";
+import { TwitterTweetEmbed } from "react-twitter-embed";
 
-export const TwitterPosts: FunctionComponent<{ url: string }> = ({ url }) => {
+const posts = [
+  "1554273271750737923",
+  "1553176310729564162",
+  "1552011112916434945",
+];
+export const TwitterPosts: FunctionComponent<{ id: number }> = ({ id }) => {
   return (
     <ul className="flex items-start gap-[34px]">
-      {Array.from({ length: 3 }).map((_, i) => (
-        <TwitterPost key={i} />
+      {posts.map((id) => (
+        <TwitterPost key={id} id={id} />
       ))}
     </ul>
   );
 };
 
-export const TwitterPost = () => {
+export const TwitterPost: FunctionComponent<{ id: string }> = ({ id }) => {
   return (
-    <div className="flex h-[456px] min-w-[361px] items-center justify-center rounded-xl border">
-      <p>TWEET</p>
+    <div className="flex h-[calc(100%-20px)] max-h-[calc(100%-20px)] min-w-[361px]">
+      <TwitterTweetEmbed options={tweetOptions} tweetId={id} />
     </div>
   );
 };
+const tweetOptions = { theme: "dark", width: "auto" };
