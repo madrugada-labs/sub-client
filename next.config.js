@@ -9,6 +9,11 @@ const nextConfig = {
   images: {
     domains: ["raw.githubusercontent.com"],
   },
+  experimental: {
+    images: {
+      unoptimized: true,
+    },
+  },
   typescript: {
     ignoreBuildErrors: true,
   },

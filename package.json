@@ -6,7 +6,7 @@
     "prepare": "husky install",
     "precommit": "lint-staged",
     "dev": "next dev -p 3000",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
     "prettify": "prettier --write './**/*.{js,jsx,ts,tsx,scss,md,json}' --config ./.prettierrc",
     "lint": "next lint -- --fix",
