@@ -71,5 +71,8 @@
     ".js, .jsx, .ts, .tsx": {
       "style": "import-sort-style-react"
     }
+  },
+  "engines": {
+    "node": ">=12.18.0"
   }
 }
