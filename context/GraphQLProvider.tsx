@@ -17,14 +17,15 @@ import { ErrorMsg } from "@/gql/graphql";
 export const GraphQLProvider: FunctionComponent<{ children: ReactNode }> = ({
   children,
 }) => {
+  const hasEnvGraphQLEndpoint = !!process.env.NEXT_PUBLIC_GRAPHQL_URI;
   const wsLink =
     typeof window !== "undefined"
       ? new GraphQLWsLink(
           createClient({
-            // webSocketImpl: require("websocket").client,
-            url:
-              process.env.NEXT_PUBLIC_GRAPHQL_URI ||
-              "ws://localhost:8080/graphql",
+            webSocketImpl: require("websocket").client,
+            url: hasEnvGraphQLEndpoint
+              ? `wss://${process.env.NEXT_PUBLIC_GRAPHQL_URI}`
+              : "ws://localhost:4000/graphql",
             connectionParams: {
               // authToken: localStorage.getItem(TOKEN_KEY),
               authToken: "",
@@ -34,7 +35,9 @@ export const GraphQLProvider: FunctionComponent<{ children: ReactNode }> = ({
       : null;
 
   const uploadLink = {
-    uri: process.env.NEXT_PUBLIC_GRAPHQL_URI || "http://localhost:8080/graphql",
+    uri: hasEnvGraphQLEndpoint
+      ? `https://${process.env.NEXT_PUBLIC_GRAPHQL_URI}`
+      : "http://localhost:8080/graphql",
   };
 
   // const authLink = setContext((_: any, { headers }) => {

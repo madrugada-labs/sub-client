@@ -6,7 +6,7 @@
     "prepare": "husky install",
     "precommit": "lint-staged",
     "local": "next dev -p 3000",
-    "dev": "NEXT_PUBLIC_GRAPHQL_URI=https://persico-test.fly.dev/graphql next dev",
+    "dev": "NEXT_PUBLIC_GRAPHQL_URI=persico-test.fly.dev/graphql next dev",
     "build": "next build && next export",
     "start": "next start",
     "prettify": "prettier --write './**/*.{js,jsx,ts,tsx,scss,md,json}' --config ./.prettierrc",
