@@ -2,9 +2,9 @@ import { FunctionComponent } from "react";
 import { TwitterTweetEmbed } from "react-twitter-embed";
 
 const posts = [
-  "1554273271750737923",
-  "1553176310729564162",
-  "1552011112916434945",
+  "1513591400343953420",
+  "1458455617459339264",
+  "1460390066816180227",
 ];
 export const TwitterPosts: FunctionComponent<{ id: number }> = ({ id }) => {
   return (

@@ -46,7 +46,7 @@ const MoneyEarnInfo = () => {
           <span className="text-[#AA9CFF]">recommendedPerson.isYou</span>()){" "}
           {"{"}
           <br />
-          &nbsp;&nbsp;&nbsp;yourMoney.add(
+          &nbsp;&nbsp;&nbsp;wallet.getPaid(
           <span className="text-[#D880EA]">getReferralFees</span>
           ())
           <br />

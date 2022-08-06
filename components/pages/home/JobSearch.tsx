@@ -71,8 +71,6 @@ const JobSearchAreaDisplay: FunctionComponent<{ skills: string[] }> = ({
     fetchPolicy: "cache-and-network",
   });
 
-  console.log(data, loading, error);
-
   const jobs = data?.jobsPublic ?? [];
   const filteredJobs = useFilterJobs(jobs, getFormValues("searchText") ?? "");
 
@@ -95,7 +93,7 @@ const JobSearchAreaDisplay: FunctionComponent<{ skills: string[] }> = ({
         </section>
       </div>
       <section className="pt-[76px]">
-        <JobGrid jobs={jobs} />
+        <JobGrid jobs={filteredJobs} />
       </section>
     </div>
   );
