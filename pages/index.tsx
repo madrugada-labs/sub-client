@@ -7,6 +7,7 @@ import { Img } from "@/components/common/Img";
 import { Header } from "@/components/layout/Header";
 import { JobSearch } from "@/components/pages/home/JobSearch";
 import { TwitterPosts } from "@/components/pages/home/TwitterPost";
+import { Influencer } from "@/constants/app-constants";
 
 const Home: NextPage = () => {
   return (
@@ -70,18 +71,9 @@ const AboutWithTwitterPosts = () => {
           </p>
         </div>
         <ul className="flex items-center gap-[14px]">
-          <InfluencerIcon
-            icon={"twitter.png"}
-            link={"https://twitter.com/abruzuc"}
-          />
-          <InfluencerIcon
-            icon={"github.png"}
-            link={"https://github.com/abrilzucchi"}
-          />
-          <InfluencerIcon
-            icon={"linkedin.png"}
-            link={"https://www.linkedin.com/in/abrilzucchi/"}
-          />
+          <InfluencerIcon icon={"twitter.png"} link={Influencer.TWITTER} />
+          <InfluencerIcon icon={"github.png"} link={Influencer.GITHUB} />
+          <InfluencerIcon icon={"linkedin.png"} link={Influencer.LINKEDIN} />
         </ul>
       </div>
       <TwitterPosts id={1} />
@@ -99,7 +91,7 @@ const InfluencerIcon: FunctionComponent<{ icon: string; link: string }> = ({
         rel="noopener noreferrer"
         target="_blank"
         href={link}
-        className="h-full w-full flex items-center justify-center rounded-full bg-white p-[7px] transition-opacity duration-200 hover:opacity-80"
+        className="h-full w-full flex items-center justify-center rounded-full bg-white p-[7px] hover-opacity-80"
       >
         <Image width={28} height={28} src={`/icons/${icon}`} />
       </a>
@@ -124,7 +116,7 @@ const InfluencerInfoSection = () => {
           serious amounts of cash for your endorsement!
         </p>
         <div className="mt-8">
-          <button className="bg-dorse flex h-[52px] w-[304px] items-center justify-center rounded-full">
+          <button className="bg-dorse flex h-[52px] w-[304px] items-center justify-center rounded-full hover-opacity-80">
             <p className="font-mono text-base font-[700] leading-[21px]">
               FIND JOBS AND ENDORSE
             </p>
@@ -137,3 +129,7 @@ const InfluencerInfoSection = () => {
 };
 
 export default Home;
+
+// export async function getServerSideProps() {
+//   const {data} = await
+// }

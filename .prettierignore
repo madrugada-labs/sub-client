@@ -4,3 +4,4 @@ node_modules
 generated/**/*
 graphql/**/*
 graphql-output/**/*
+out/**/*

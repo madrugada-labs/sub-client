@@ -5,7 +5,8 @@
   "scripts": {
     "prepare": "husky install",
     "precommit": "lint-staged",
-    "dev": "next dev -p 3000",
+    "local": "next dev -p 3000",
+    "dev": "NEXT_PUBLIC_GRAPHQL_URI=https://persico-test.fly.dev/graphql next dev",
     "build": "next build && next export",
     "start": "next start",
     "prettify": "prettier --write './**/*.{js,jsx,ts,tsx,scss,md,json}' --config ./.prettierrc",
@@ -16,11 +17,14 @@
   "dependencies": {
     "@apollo/client": "^3.6.9",
     "@headlessui/react": "^1.6.6",
+    "apollo-upload-client": "^17.0.0",
     "autoprefixer": "^10.4.8",
     "axios": "^0.27.2",
     "clsx": "^1.2.1",
     "dayjs": "^1.11.4",
+    "fuse.js": "^6.6.2",
     "graphql": "^16.5.0",
+    "graphql-ws": "^5.9.1",
     "lodash": "^4.17.21",
     "next": "12.2.3",
     "react": "18.2.0",
@@ -31,7 +35,8 @@
     "react-toastify": "^9.0.7",
     "react-twitter-embed": "^4.0.4",
     "sass": "^1.54.0",
-    "sharp": "^0.30.7"
+    "sharp": "^0.30.7",
+    "websocket": "^1.0.34"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^2.11.3",
@@ -40,6 +45,8 @@
     "@graphql-codegen/typescript": "^2.7.2",
     "@graphql-codegen/typescript-operations": "^2.5.2",
     "@graphql-codegen/typescript-react-apollo": "^3.3.2",
+    "@types/apollo-upload-client": "^17.0.1",
+    "@types/lodash": "^4.14.182",
     "@types/node": "18.6.3",
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",

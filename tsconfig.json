@@ -25,6 +25,7 @@
       "@/styles/*": ["styles/*"],
       "@/hooks/*": ["hooks/*"],
       "@/settings/*": ["settings/*"],
+      "@/types/*": ["types/*"],
       "@/utils/*": ["utils/*"]
       //	add paths if more folders are required
     }

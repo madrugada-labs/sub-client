@@ -7,6 +7,10 @@
     @apply absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[50%];
   }
 
+  .hover-opacity-80 {
+    @apply transition-opacity duration-200 hover:opacity-80;
+  }
+
   .wh-full {
     @apply h-full w-full;
   }

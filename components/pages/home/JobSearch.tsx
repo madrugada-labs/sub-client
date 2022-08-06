@@ -1,7 +1,18 @@
 import { FunctionComponent, useCallback, useState } from "react";
+import { useForm } from "react-hook-form";
 
 import clsx from "clsx";
+import { useSearchParams } from "next/dist/client/components/hooks-client";
 import Image from "next/image";
+import { useRouter } from "next/router";
+
+import { JobGrid } from "@/components/pages/home/JobGrid";
+import {
+  OrderEnum,
+  SortJobsByKeyEnum,
+  useGetJobsPublicQuery,
+} from "@/gql/graphql";
+import useFilterJobs from "@/hooks/useFilterJobs";
 
 export const JobSearch = () => {
   return (
@@ -42,11 +53,35 @@ const JobSearchArea = () => {
 const JobSearchAreaDisplay: FunctionComponent<{ skills: string[] }> = ({
   skills,
 }) => {
+  const { getValues: getFormValues, register } = useForm<{
+    searchText: string;
+  }>({
+    mode: "all",
+  });
+
+  const sortBy = {
+    key: SortJobsByKeyEnum.Created,
+    order: OrderEnum.Desc,
+  };
+
+  const { data, loading, error } = useGetJobsPublicQuery({
+    variables: {
+      sortBy,
+    },
+    fetchPolicy: "cache-and-network",
+  });
+
+  console.log(data, loading, error);
+
+  const jobs = data?.jobsPublic ?? [];
+  const filteredJobs = useFilterJobs(jobs, getFormValues("searchText") ?? "");
+
   return (
     <div className="w-full">
       <div className="flex h-[94px] w-full items-center px-[30px] border border-[#4A465B] rounded-[21px]">
         <Image width={36} height={36} src="/icons/search.svg" />
         <input
+          {...register("searchText")}
           placeholder="Job title, keywords, skills"
           className="h-[32px] w-full pl-[17px] bg-transparent font-mono text-[24px] leading-[32px] tracking-[-0.71px] placeholder-gray-300"
         />
@@ -59,6 +94,9 @@ const JobSearchAreaDisplay: FunctionComponent<{ skills: string[] }> = ({
           <SkillSelectArea skills={skills} />
         </section>
       </div>
+      <section className="pt-[76px]">
+        <JobGrid jobs={jobs} />
+      </section>
     </div>
   );
 };
