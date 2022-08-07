@@ -1,12 +1,13 @@
 import { FunctionComponent } from "react";
 import { TwitterTweetEmbed } from "react-twitter-embed";
 
+// TODO : refactor into consts file
 const posts = [
   "1513591400343953420",
   "1458455617459339264",
   "1460390066816180227",
 ];
-export const TwitterPosts: FunctionComponent<{ id: number }> = ({ id }) => {
+export const TwitterPosts: FunctionComponent = () => {
   return (
     <ul className="flex items-start gap-[34px]">
       {posts.map((id) => (

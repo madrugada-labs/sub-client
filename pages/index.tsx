@@ -11,18 +11,18 @@ import { Influencer } from "@/constants/app-constants";
 
 const Home: NextPage = () => {
   return (
-    <div className="bg-bg pt-[144px]">
+    <div className="bg-bg pt-[112px] md:pt-[144px]">
       <Header />
-      <section className="mx-auto w-full w-full px-10 pt-[55px] lg:w-lg lg:px-0">
+      <section className="mx-auto w-full w-full px-4 pt-[55px] xl:w-lg xl:px-0">
         <InfluencerInfoSection />
       </section>
-      <section className="mx-auto w-full px-10 pt-[112px] lg:w-lg lg:px-0">
+      <section className="w-full pt-[112px]">
         <AboutWithTwitterPosts />
       </section>
       <section className="w-full pt-[96px]">
         <MoneyEarnInfo />
       </section>
-      <section className="mx-auto w-full px-10 pt-[116px] lg:w-lg lg:px-0">
+      <section className="mx-auto w-full px-10 pt-[116px] xl:w-lg xl:px-0">
         <JobSearch />
       </section>
     </div>
@@ -36,12 +36,12 @@ const MoneyEarnInfo = () => {
         <h5 className="text-center font-sora text-[18px] leading-[22px] tracking-[-0.03em] text-primary">
           ENDORSING PEOPLE
         </h5>
-        <h2 className="text-center font-sora text-[42px] font-[600] leading-[53px] tracking-[-0.03em]">
+        <h2 className="text-center font-sora text-[30px] leading-[40px] sm:text-[42px] sm:leading-[53px] font-[600] tracking-[-0.03em]">
           How Dorse works
         </h2>
       </div>
       <div className="flex items-center justify-center">
-        <h2 className="mt-16 w-fit font-mono text-[39px] leading-[51px] tracking-[-0.03em]">
+        <h2 className="mt-16 w-fit font-mono text-[16px] leading-[22px] tracking-[-0.05em] md:text-[30px] md:leading-[40px] lg:text-[39px] lg:leading-[51px] tracking-[-0.03em]">
           <span className="text-[#A4EB99]">if</span>(
           <span className="text-[#AA9CFF]">recommendedPerson.isYou</span>()){" "}
           {"{"}
@@ -59,7 +59,7 @@ const MoneyEarnInfo = () => {
 
 const AboutWithTwitterPosts = () => {
   return (
-    <div className="grid grid-cols-[351px,min-content] overflow-auto gap-[34px] hide-scrollbar">
+    <div className="grid grid-cols-[351px,min-content] overflow-auto gap-[34px] hide-scrollbar w-[100vw] pl-[2vw]">
       <div className="flex h-[300px] min-w-[351px] flex-col justify-between rounded-2xl border border-[#D9D9D9] px-6 pt-9 pb-6">
         <div>
           <h4 className="font-sora text-[28px] leading-[35px] tracking-[-0.03em]">
@@ -76,7 +76,9 @@ const AboutWithTwitterPosts = () => {
           <InfluencerIcon icon={"linkedin.png"} link={Influencer.LINKEDIN} />
         </ul>
       </div>
-      <TwitterPosts id={1} />
+      <div className="pr-4">
+        <TwitterPosts />
+      </div>
     </div>
   );
 };
@@ -101,21 +103,22 @@ const InfluencerIcon: FunctionComponent<{ icon: string; link: string }> = ({
 
 const InfluencerInfoSection = () => {
   return (
-    <div className="flex w-full items-center justify-between">
+    <div className="flex flex-col lg:flex-row w-full items-center justify-between">
       <div>
-        <h2 className="font-sora text-[100px] leading-[100px] tracking-[-0.03em]">
-          <span className="font-[600]">Great jobs</span> by
-          <br />
+        <h2 className="font-sora text-[48px] leading-[60px] lg:text-[100px] lg:leading-[100px] tracking-[-0.03em] text-center lg:text-left">
+          <span className="font-[600]">Great jobs</span>{" "}
+          <br className="lg:hidden block" /> by{" "}
+          <br className="hidden lg:block" />
           Abril Zucchi
         </h2>
-        <p className="pt-[31px] font-mono text-[20px] leading-[26px] tracking-[-0.02em] text-[#DADADA]">
+        <p className="pt-[31px] font-mono text-[12px] md:text-[20px] leading-[16px] md:leading-[26px] tracking-[-0.02em] text-[#DADADA] lg:text-left text-center">
           We flip the script on recruiting...
           <br />
           no more small finder&apos;s fees, we&apos;re paying you
           <br />
           serious amounts of cash for your endorsement!
         </p>
-        <div className="mt-8">
+        <div className="mt-8 lg:block flex items-center justify-center">
           <button className="bg-dorse flex h-[52px] w-[304px] items-center justify-center rounded-full hover-opacity-80">
             <p className="font-mono text-base font-[700] leading-[21px]">
               FIND JOBS AND ENDORSE
@@ -123,7 +126,10 @@ const InfluencerInfoSection = () => {
           </button>
         </div>
       </div>
-      <Img src="/image/influencer.png" className="h-[423px] w-[356px]" />
+      <Img
+        src="/image/influencer.png"
+        className="h-[423px] w-[356px] lg:block hidden"
+      />
     </div>
   );
 };

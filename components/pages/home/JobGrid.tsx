@@ -3,13 +3,13 @@ import { FunctionComponent } from "react";
 import upperCase from "lodash/upperCase";
 
 import { Img } from "@/components/common/Img";
-import { JobAdCandidate } from "@/types/data";
+import { JobPublicFragment } from "@/gql/graphql";
 
-export const JobGrid: FunctionComponent<{ jobs: JobAdCandidate[] }> = ({
+export const JobGrid: FunctionComponent<{ jobs: JobPublicFragment[] }> = ({
   jobs,
 }) => {
   return (
-    <ul className="w-full grid auto-rows-max grid-cols-[291px,291px,291px,291px] gap-8">
+    <ul className="w-full grid grid-rows-2 auto-cols-fit sm:auto-rows-max sm:grid-cols-[minmax(291px,450px),minmax(291px,450px)] lg:grid-cols-[minmax(291px,400px),minmax(291px,400px),minmax(291px,400px)] xl:grid-cols-[291px,291px,291px,291px] gap-8">
       {jobs.map((job) => (
         <JobCard key={job.id} data={job} />
       ))}
@@ -17,11 +17,11 @@ export const JobGrid: FunctionComponent<{ jobs: JobAdCandidate[] }> = ({
   );
 };
 
-const JobCard: FunctionComponent<{ data: JobAdCandidate }> = ({ data }) => {
+const JobCard: FunctionComponent<{ data: JobPublicFragment }> = ({ data }) => {
   return (
     <li
       onClick={(v) => console.log(data)}
-      className="w-full h-[368px] bg-[#343141] rounded-[20px] pt-[25px] px-4 pb-[18px] group"
+      className="w-full h-[368px] bg-[#343141] rounded-[20px] pt-[25px] px-4 pb-[18px] group hover:bg-[#4A465B] cursor-pointer"
     >
       <div className="flex items-start justify-between h-[88px]">
         <figure className="flex items-center justify-center h-[88px]">

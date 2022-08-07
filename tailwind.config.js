@@ -17,13 +17,14 @@ module.exports = {
         bg: "#1F1D26",
       },
       width: {
-        lg: "1240px",
+        lg: "1248px",
       },
+      //  sizes based purely on the job grid. shitty choice I know
       screens: {
-        sm: "476px",
+        sm: "680px",
         md: "768px",
-        lg: "1280px",
-        xl: "1440px",
+        lg: "1024px",
+        xl: "1280px",
       },
       fontFamily: {
         mono: "Roboto Mono, ui-monospace",
