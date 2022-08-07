@@ -19,6 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <GraphQLProvider>
       <Head>
         <title>Dorse x {Influencer.NAME}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Script
         defer
