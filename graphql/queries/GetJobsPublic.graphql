@@ -8,6 +8,7 @@ fragment jobPublic on JobAd {
     name
     photoUrl
   }
+  description
   currency
   minSalary
   maxSalary

@@ -180,6 +180,7 @@ export type EndorsementWithoutJob = {
 export enum ErrorMsg {
   ApplicationAlreadyExists = 'APPLICATION_ALREADY_EXISTS',
   ApplicationNotFound = 'APPLICATION_NOT_FOUND',
+  CommunityLeaderNotFound = 'COMMUNITY_LEADER_NOT_FOUND',
   CompanyHrProfileNotFound = 'COMPANY_HR_PROFILE_NOT_FOUND',
   CompanyNotFound = 'COMPANY_NOT_FOUND',
   CvNotFound = 'CV_NOT_FOUND',
@@ -407,6 +408,7 @@ export type Mutation = {
   addApplicationNote?: Maybe<Scalars['Boolean']>;
   addInternalRecruiterToJob: Scalars['Boolean'];
   applyToJob?: Maybe<Scalars['ID']>;
+  applyToJobThroughCommunityLeader?: Maybe<Scalars['String']>;
   changeApplicationStatus?: Maybe<ApplicationStatusEnum>;
   changeJobAdStatus: Scalars['Boolean'];
   continueWithLinkedin?: Maybe<LoginResponse>;
@@ -459,6 +461,12 @@ export type MutationAddInternalRecruiterToJobArgs = {
 
 
 export type MutationApplyToJobArgs = {
+  jobAdId: Scalars['ID'];
+};
+
+
+export type MutationApplyToJobThroughCommunityLeaderArgs = {
+  communityLeaderDomain: Scalars['ID'];
   jobAdId: Scalars['ID'];
 };
 
@@ -1439,7 +1447,7 @@ export type GetJobsForInternalRecruiterQueryVariables = Exact<{
 
 export type GetJobsForInternalRecruiterQuery = { __typename?: 'Query', jobsForInternalRecruiter: Array<{ __typename?: 'JobForInternalRecruiter', jobAd: { __typename?: 'JobAd', id: string, title: string, format: JobTypeEnum, location?: string | null, currency: string, minSalary: number, maxSalary: number, status: JobStatusEnum, date: string, field: FieldEnum, experience: ExperienceEnum, numberOfApplications: number, requirements: string, preferred: string, editable: boolean, isRemote: boolean, jobSkills?: Array<string> | null, company: { __typename?: 'Company', id: string, name: string, photoUrl?: string | null } } }> };
 
-export type JobPublicFragment = { __typename?: 'JobAd', id: string, title: string, format: JobTypeEnum, location?: string | null, currency: string, minSalary: number, maxSalary: number, status: JobStatusEnum, date: string, field: FieldEnum, experience: ExperienceEnum, numberOfApplications: number, requirements: string, preferred: string, editable: boolean, isRemote: boolean, jobSkills?: Array<string> | null, company: { __typename?: 'Company', id: string, name: string, photoUrl?: string | null } };
+export type JobPublicFragment = { __typename?: 'JobAd', id: string, title: string, format: JobTypeEnum, location?: string | null, description: string, currency: string, minSalary: number, maxSalary: number, status: JobStatusEnum, date: string, field: FieldEnum, experience: ExperienceEnum, numberOfApplications: number, requirements: string, preferred: string, editable: boolean, isRemote: boolean, jobSkills?: Array<string> | null, company: { __typename?: 'Company', id: string, name: string, photoUrl?: string | null } };
 
 export type GetJobsPublicQueryVariables = Exact<{
   filters?: InputMaybe<JobFilters>;
@@ -1447,7 +1455,7 @@ export type GetJobsPublicQueryVariables = Exact<{
 }>;
 
 
-export type GetJobsPublicQuery = { __typename?: 'Query', jobsPublic: Array<{ __typename?: 'JobAd', id: string, title: string, format: JobTypeEnum, location?: string | null, currency: string, minSalary: number, maxSalary: number, status: JobStatusEnum, date: string, field: FieldEnum, experience: ExperienceEnum, numberOfApplications: number, requirements: string, preferred: string, editable: boolean, isRemote: boolean, jobSkills?: Array<string> | null, company: { __typename?: 'Company', id: string, name: string, photoUrl?: string | null } }> };
+export type GetJobsPublicQuery = { __typename?: 'Query', jobsPublic: Array<{ __typename?: 'JobAd', id: string, title: string, format: JobTypeEnum, location?: string | null, description: string, currency: string, minSalary: number, maxSalary: number, status: JobStatusEnum, date: string, field: FieldEnum, experience: ExperienceEnum, numberOfApplications: number, requirements: string, preferred: string, editable: boolean, isRemote: boolean, jobSkills?: Array<string> | null, company: { __typename?: 'Company', id: string, name: string, photoUrl?: string | null } }> };
 
 export type NotificationDataFragment = { __typename?: 'Notification', id: string, type: NotificationTypeEnum, date: string, info?: string | null, read: boolean, linkID: string, application?: { __typename?: 'JobApplication', id: string, status: ApplicationStatusEnum, candidate: { __typename?: 'CandidateProfile', id: string, name: string, photoUrl?: string | null }, reference?: { __typename?: 'Reference', referrer: { __typename?: 'CandidateProfile', id: string, name: string, photoUrl?: string | null, role: RoleEnum } | { __typename?: 'CompanyHrProfile', id: string, name: string, photoUrl?: string | null, role: RoleEnum } | { __typename?: 'InternalRecruiterProfile', id: string, name: string, photoUrl?: string | null, role: RoleEnum } | { __typename?: 'StakerProfile', id: string, name: string, photoUrl?: string | null, role: RoleEnum } } | null, jobAd: { __typename?: 'JobAd', id: string, title: string, company: { __typename?: 'Company', photoUrl?: string | null } }, notes?: Array<{ __typename?: 'ApplicationNote', id: string, writtenBy: { __typename?: 'CandidateProfile', id: string, name: string, photoUrl?: string | null } | { __typename?: 'CompanyHrProfile', id: string, name: string, photoUrl?: string | null } | { __typename?: 'InternalRecruiterProfile', id: string, name: string, photoUrl?: string | null } | { __typename?: 'StakerProfile', id: string, name: string, photoUrl?: string | null } }> | null } | null, triggerUserProfile?: { __typename?: 'CandidateProfile', id: string, name: string, photoUrl?: string | null } | { __typename?: 'CompanyHrProfile', id: string, name: string, photoUrl?: string | null } | { __typename?: 'InternalRecruiterProfile', id: string, name: string, photoUrl?: string | null } | { __typename?: 'StakerProfile', id: string, name: string, photoUrl?: string | null } | null };
 
@@ -1758,6 +1766,7 @@ export const JobPublicFragmentDoc = gql`
     name
     photoUrl
   }
+  description
   currency
   minSalary
   maxSalary

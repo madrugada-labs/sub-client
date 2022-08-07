@@ -70,13 +70,13 @@ const JobSearchAreaDisplay: FunctionComponent<{ skills: string[] }> = ({
     },
     fetchPolicy: "cache-and-network",
   });
-
+  console.log(data);
   const jobs = data?.jobsPublic ?? [];
   const filteredJobs = useFilterJobs(jobs, getFormValues("searchText") ?? "");
 
   return (
     <div className="w-full">
-      <div className="flex h-[94px] w-full items-center px-[30px] border border-[#4A465B] rounded-[21px]">
+      <div className="flex h-[94px] w-full items-center px-[30px] border border-[#4A465B] rounded-[21px] hover:border-[#6d6786]">
         <Image width={36} height={36} src="/icons/search.svg" />
         <input
           {...register("searchText")}
