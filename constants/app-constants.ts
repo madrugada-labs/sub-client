@@ -5,6 +5,7 @@ export const Influencer = {
   TWITTER: "https://twitter.com/abruzuc",
   GITHUB: "https://github.com/abrilzucchi",
   LINKEDIN: "https://www.linkedin.com/in/abrilzucchi/",
+  DOMAIN: "abril.dorse.io",
 };
 
 // const BASEURL = "https://dorse.io"

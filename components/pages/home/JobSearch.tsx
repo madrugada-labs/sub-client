@@ -80,26 +80,27 @@ const JobSearchAreaDisplay: FunctionComponent<{ skills: string[] }> = ({
 
   return (
     <div className="w-full">
-      <div
-        id="job-search-area"
-        className="flex h-[52px] md:h-[94px] w-full items-center px-[16px] md:px-[30px] border border-[#4A465B] rounded-[12px] md:rounded-[21px] hover:border-[#6d6786]"
-      >
-        <Img className="w-5 h-5 md:w-9 md:h-9" src="/icons/search.svg" />
-        <input
-          {...register("searchText")}
-          placeholder="Job title, keywords, skills"
-          className="h-[18px] md:h-[32px] w-full pl-[10px] md:pl-[17px] bg-transparent font-mono text-[14px] md:text-[24px] leading-[18px] mdleading-[32px] tracking-[-0.39px] md:tracking-[-0.71px] placeholder-gray-300"
-        />
-      </div>
-      <div className="pt-[33px]">
-        <h3 className="font-mono text-[18px] md:text-[24px] font-mono font-[500] leading-[24px] md:leading-[32px] tracking-[-0.57px]">
-          Find Jobs by Skills
-        </h3>
-        <section className="mt-[17px]">
-          <SkillSelectArea skills={skills} />
-        </section>
-      </div>
-      <section className="pt-[29px] md:pt-[76px]">
+      {/*<div*/}
+      {/*  id="job-search-area"*/}
+      {/*  className="flex h-[52px] md:h-[94px] w-full items-center px-[16px] md:px-[30px] border border-[#4A465B] rounded-[12px] md:rounded-[21px] hover:border-[#6d6786]"*/}
+      {/*>*/}
+      {/*  <Img className="w-5 h-5 md:w-9 md:h-9" src="/icons/search.svg" />*/}
+      {/*  <input*/}
+      {/*    {...register("searchText")}*/}
+      {/*    placeholder="Job title, keywords, skills"*/}
+      {/*    className="h-[18px] md:h-[32px] w-full pl-[10px] md:pl-[17px] bg-transparent font-mono text-[14px] md:text-[24px] leading-[18px] mdleading-[32px] tracking-[-0.39px] md:tracking-[-0.71px] placeholder-gray-300"*/}
+      {/*  />*/}
+      {/*</div>*/}
+      {/*<div className="pt-[33px]">*/}
+      {/*  <h3 className="font-mono text-[18px] md:text-[24px] font-mono font-[500] leading-[24px] md:leading-[32px] tracking-[-0.57px]">*/}
+      {/*    Find Jobs by Skills*/}
+      {/*  </h3>*/}
+      {/*  <section className="mt-[17px]">*/}
+      {/*    <SkillSelectArea skills={skills} />*/}
+      {/*  </section>*/}
+      {/*</div>*/}
+      {/*<section className="pt-[29px] md:pt-[76px]">*/}
+      <section>
         <JobGrid jobs={filteredJobs} />
       </section>
     </div>
