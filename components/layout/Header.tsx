@@ -10,7 +10,7 @@ export const Header = () => {
           Abril Zucchi x dorse
         </p>
       </div>
-      <div className="absolute top-[41px] flex h-[77px] md:h-[104px] w-full items-center justify-between border-b border-[#928CA6] border-opacity-20 pl-6 pr-3 md:pl-[96px] md:pr-[53px] pt-[33px] pb-[25px] max-w-[100vw] overflow-x-auto">
+      <div className="absolute top-[41px] flex h-[77px] md:h-[104px] w-full items-center justify-between border-b border-[#928CA6] border-opacity-20 pl-6 pr-3 md:pl-[96px] md:pr-[53px] pt-[33px] pb-[25px] max-w-[100vw]">
         <img
           alt="logo"
           src="/icons/dorse_logo.svg"
