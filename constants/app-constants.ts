@@ -8,8 +8,8 @@ export const Influencer = {
   DOMAIN: "abril.dorse.io",
 };
 
-// const BASEURL = "https://dorse.io"
-const BASEURL = "https://develop.dorse-front-end.pages.dev";
+const BASEURL = `https://${process.env.NEXT_PUBLIC_PROD_FRONTEND}`;
+// const BASEURL = "https://develop.dorse-front-end.pages.dev";
 export const WEBSITE = {
   HOME: BASEURL,
   SIGNUP: `${BASEURL}/signup`,
