@@ -74,7 +74,6 @@ const JobSearchAreaDisplay: FunctionComponent<{ skills: string[] }> = ({
     },
     fetchPolicy: "cache-and-network",
   });
-  console.log(data);
   const jobs = data?.jobsPublic ?? [];
   const filteredJobs = useFilterJobs(jobs, getFormValues("searchText") ?? "");
 

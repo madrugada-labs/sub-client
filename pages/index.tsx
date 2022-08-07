@@ -4,6 +4,7 @@ import type { NextPage } from "next";
 import Image from "next/image";
 
 import { Img } from "@/components/common/Img";
+import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { JobSearch } from "@/components/pages/home/JobSearch";
 import { TwitterPosts } from "@/components/pages/home/TwitterPost";
@@ -26,6 +27,30 @@ const Home: NextPage = () => {
       <section className="mx-auto w-full px-3 sm:pl-[32px] sm:pr-[28px] md:px-10 pt-[121px] md:pt-[116px] xl:w-lg xl:px-0">
         <JobSearch />
       </section>
+      <section className="mx-auto w-full pt-[120px] md:pt-[176px] mb-[120px] md:mb-[176px]">
+        <MakeYouEndorse />
+      </section>
+      <Footer />
+    </div>
+  );
+};
+
+const MakeYouEndorse = () => {
+  return (
+    <div className="flex flex-col items-center gap-[34px]">
+      <h3 className="font-sora font-[600] text-[16px] sm:text-[28px] leading-[20px] sm:leading-[35px] tracking-[-0.03em]">
+        If you don&apos;t endorse, someone else will...
+      </h3>
+      <a
+        href={appendReferralToLink(WEBSITE.SIGNIN)}
+        target="_self"
+        rel="noopener noreferrer"
+        className="bg-dorse px-[55px] py-4 rounded-full hover-opacity-80"
+      >
+        <p className="font-mono text-[14px] sm:text-[16px] leading-[21px]">
+          START ENDORSING
+        </p>
+      </a>
     </div>
   );
 };
@@ -66,11 +91,10 @@ const AboutWithTwitterPosts = () => {
           <Img className="sm:hidden block" src="/image/influencer_small.png" />
           <div>
             <h4 className="font-sora text-[24px] sm:text-[28px] leading-[30px] sm:leading-[35px] tracking-[-0.03em]">
-              About Abril Zucchi
+              About {Influencer.NAME}
             </h4>
             <p className="mt-3 pr-[7px] text-[14px] sm:text-base font-mono leading-[18px] sm:leading-[24px] tracking-[-0.03em] text-[#C4C4C4]">
-              Solidity Blockchain Developer made in Buenos Aires, web3 builder
-              and crypto enthusiast
+              {Influencer.INFO}
             </p>
           </div>
         </div>
@@ -118,7 +142,7 @@ const InfluencerInfoSection = () => {
           <span className="font-[600]">Great jobs</span>{" "}
           <br className="lg:hidden block" /> by{" "}
           <br className="hidden lg:block" />
-          Abril Zucchi
+          {Influencer.NAME}
         </h2>
         <p className="pt-[31px] font-mono text-[12px] md:text-[16px] lg:text-[20px] leading-[16px] md:leading-[20px] lg:leading-[26px] tracking-[-0.02em] text-[#DADADA] md:text-left text-center">
           We flip the script on recruiting...

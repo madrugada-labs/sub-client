@@ -1,8 +1,5 @@
 @layer utilities {
-  .hoverEff {
-    @apply cursor-pointer transition-opacity duration-200 hover:opacity-80;
-  }
-  .hoverEff-txt {
+  .hover-txt {
     @apply hover:text-accent cursor-pointer transition-colors duration-200;
   }
   .filter-white {
