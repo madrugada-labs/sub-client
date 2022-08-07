@@ -4,7 +4,7 @@ import { Img } from "@/components/common/Img";
 
 export const Footer = () => {
   return (
-    <footer className="w-full h-[105px] md:h-[120px] bg-[#161844] px-[91px] flex items-center">
+    <footer className="w-full h-[105px] md:h-[120px] bg-[#161844] px-[91px] flex items-center overflow-hidden">
       <div className="w-full flex gap-[21px] flex-col md:flex-row items-center justify-between">
         <div className="flex items-center gap-[15px] md:gap-[25px]">
           <a className="hover-opacity-80" href="mailto:lfg@dorse.io">

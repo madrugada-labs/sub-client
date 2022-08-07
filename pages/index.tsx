@@ -88,7 +88,10 @@ const AboutWithTwitterPosts = () => {
     <div className="flex flex-col items-center sm:grid sm:grid-cols-[351px,min-content] sm:overflow-auto gap-16 sm:gap-[34px] hide-scrollbar w-[100vw] sm:pl-[2vw]">
       <div className="flex h-[236px] sm:h-[300px] max-w-[351px] md:w-full flex-col justify-between rounded-2xl border border-[#D9D9D9] px-3 sm:px-6 pt-9 pb-[31px] sm:pb-6">
         <div className="flex justify-between items-start gap-[18px]">
-          <Img className="sm:hidden block" src="/image/influencer_small.png" />
+          <Img
+            className="sm:hidden block max-h-[100px]"
+            src="/image/influencer_small.png"
+          />
           <div>
             <h4 className="font-sora text-[24px] sm:text-[28px] leading-[30px] sm:leading-[35px] tracking-[-0.03em]">
               About {Influencer.NAME}

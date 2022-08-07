@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
 
 import type { AppProps } from "next/app";
+import Head from "next/head";
 import Script from "next/script";
 
 import { Influencer } from "@/constants/app-constants";
@@ -16,6 +17,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
   return (
     <GraphQLProvider>
+      <Head>
+        <title>Dorse x {Influencer.NAME}</title>
+      </Head>
       <Script
         defer
         data-domain={Influencer.DOMAIN}
