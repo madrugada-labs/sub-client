@@ -71,6 +71,7 @@ const JobSearchAreaDisplay: FunctionComponent<{ skills: string[] }> = ({
   const { data, loading, error } = useGetJobsPublicQuery({
     variables: {
       sortBy,
+      filters: { isRemote: true },
     },
     fetchPolicy: "cache-and-network",
   });
