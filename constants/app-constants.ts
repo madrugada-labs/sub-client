@@ -7,10 +7,14 @@ export const Influencer = {
   LINKEDIN: "https://www.linkedin.com/in/abrilzucchi/",
 };
 
+const BASEURL =
+  process.env.NODE_ENV === "production"
+    ? "https://dorse.io"
+    : "https://develop.dorse-front-end.pages.dev";
 export const WEBSITE = {
-  HOME: "https://dorse.io",
-  SIGNUP: "https://dorse.io/signup",
-  SIGNIN: "https://dorse.io/signin",
-  FINDJOBS: "https://dorse.io/find-jobs",
-  JOB: (id: string) => "https://dorse.io/job/" + id,
+  HOME: BASEURL,
+  SIGNUP: `${BASEURL}/signup`,
+  SIGNIN: `${BASEURL}/signin`,
+  FINDJOBS: `${BASEURL}/find-jobs`,
+  JOB: (id: string) => `${BASEURL}/job/${id}`,
 };
