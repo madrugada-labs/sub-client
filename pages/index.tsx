@@ -142,7 +142,7 @@ const InfluencerInfoSection = () => {
     <div className="flex flex-col md:flex-row items-start justify-between">
       <div>
         <h2 className="font-sora text-[48px] leading-[60px] lg:text-[100px] lg:leading-[100px] tracking-[-0.03em] text-center md:text-left">
-          <span className="font-[600]">Great jobs</span>{" "}
+          <span className="font-[600]">Web3 jobs</span>{" "}
           <br className="lg:hidden block" /> by{" "}
           <br className="hidden lg:block" />
           {Influencer.NAME}
