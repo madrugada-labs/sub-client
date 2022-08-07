@@ -7,22 +7,23 @@ import { Img } from "@/components/common/Img";
 import { Header } from "@/components/layout/Header";
 import { JobSearch } from "@/components/pages/home/JobSearch";
 import { TwitterPosts } from "@/components/pages/home/TwitterPost";
-import { Influencer } from "@/constants/app-constants";
+import { Influencer, WEBSITE } from "@/constants/app-constants";
+import { appendReferralToLink } from "@/utils/scripts";
 
 const Home: NextPage = () => {
   return (
-    <div className="bg-bg pt-[112px] md:pt-[144px]">
+    <div className="bg-bg pt-[112px] sm:pt-[144px]">
       <Header />
-      <section className="mx-auto w-full w-full px-4 pt-[55px] xl:w-lg xl:px-0">
+      <section className="mx-auto flex flex-col items-center md:block w-full px-4 pt-[55px] sm:px-5 md:px-10 xl:w-lg xl:px-0">
         <InfluencerInfoSection />
       </section>
-      <section className="w-full pt-[112px]">
+      <section className="w-full pt-[59px] sm:pt-[112px]">
         <AboutWithTwitterPosts />
       </section>
-      <section className="w-full pt-[96px]">
+      <section className="w-full pt-[120px] sm:pt-[96px]">
         <MoneyEarnInfo />
       </section>
-      <section className="mx-auto w-full px-10 pt-[116px] xl:w-lg xl:px-0">
+      <section className="mx-auto w-full px-3 sm:pl-[32px] sm:pr-[28px] md:px-10 pt-[121px] md:pt-[116px] xl:w-lg xl:px-0">
         <JobSearch />
       </section>
     </div>
@@ -33,15 +34,15 @@ const MoneyEarnInfo = () => {
   return (
     <div className="w-full">
       <div className="flex w-full flex-col gap-3">
-        <h5 className="text-center font-sora text-[18px] leading-[22px] tracking-[-0.03em] text-primary">
+        <h5 className="text-center font-sora text-[12px] sm:text-[18px] leading-[15px] sm:leading-[22px] tracking-[-0.03em] text-primary">
           ENDORSING PEOPLE
         </h5>
-        <h2 className="text-center font-sora text-[30px] leading-[40px] sm:text-[42px] sm:leading-[53px] font-[600] tracking-[-0.03em]">
+        <h2 className="text-center font-sora text-[26px] sm:text-[30px] leading-[32px] sm:leading-[40px] sm:text-[42px] sm:leading-[53px] font-[600] tracking-[-0.03em]">
           How Dorse works
         </h2>
       </div>
-      <div className="flex items-center justify-center">
-        <h2 className="mt-16 w-fit font-mono text-[16px] leading-[22px] tracking-[-0.05em] md:text-[30px] md:leading-[40px] lg:text-[39px] lg:leading-[51px] tracking-[-0.03em]">
+      <div className="mt-[28px] md:mt-16 flex items-center justify-center">
+        <h2 className="w-fit font-mono text-[16px] leading-[22px] tracking-[-0.05em] sm:text-[30px] sm:leading-[40px] lg:text-[39px] lg:leading-[51px] tracking-[-0.03em]">
           <span className="text-[#A4EB99]">if</span>(
           <span className="text-[#AA9CFF]">recommendedPerson.isYou</span>()){" "}
           {"{"}
@@ -59,24 +60,27 @@ const MoneyEarnInfo = () => {
 
 const AboutWithTwitterPosts = () => {
   return (
-    <div className="grid grid-cols-[351px,min-content] overflow-auto gap-[34px] hide-scrollbar w-[100vw] pl-[2vw]">
-      <div className="flex h-[300px] min-w-[351px] flex-col justify-between rounded-2xl border border-[#D9D9D9] px-6 pt-9 pb-6">
-        <div>
-          <h4 className="font-sora text-[28px] leading-[35px] tracking-[-0.03em]">
-            About Abril Zucchi
-          </h4>
-          <p className="mt-3 pr-[7px] font-mono leading-[24px] tracking-[-0.03em] text-[#C4C4C4]">
-            Solidity Blockchain Developer made in Buenos Aires, web3 builder and
-            crypto enthusiast
-          </p>
+    <div className="flex flex-col items-center sm:grid sm:grid-cols-[351px,min-content] sm:overflow-auto gap-16 sm:gap-[34px] hide-scrollbar w-[100vw] sm:pl-[2vw]">
+      <div className="flex h-[236px] sm:h-[300px] max-w-[351px] md:w-full flex-col justify-between rounded-2xl border border-[#D9D9D9] px-3 sm:px-6 pt-9 pb-[31px] sm:pb-6">
+        <div className="flex justify-between items-start gap-[18px]">
+          <Img className="sm:hidden block" src="/image/influencer_small.png" />
+          <div>
+            <h4 className="font-sora text-[24px] sm:text-[28px] leading-[30px] sm:leading-[35px] tracking-[-0.03em]">
+              About Abril Zucchi
+            </h4>
+            <p className="mt-3 pr-[7px] text-[14px] sm:text-base font-mono leading-[18px] sm:leading-[24px] tracking-[-0.03em] text-[#C4C4C4]">
+              Solidity Blockchain Developer made in Buenos Aires, web3 builder
+              and crypto enthusiast
+            </p>
+          </div>
         </div>
-        <ul className="flex items-center gap-[14px]">
+        <ul className="flex items-center gap-[14px] justify-center">
           <InfluencerIcon icon={"twitter.png"} link={Influencer.TWITTER} />
           <InfluencerIcon icon={"github.png"} link={Influencer.GITHUB} />
           <InfluencerIcon icon={"linkedin.png"} link={Influencer.LINKEDIN} />
         </ul>
       </div>
-      <div className="pr-4">
+      <div className="pr-4 w-full overflow-auto">
         <TwitterPosts />
       </div>
     </div>
@@ -88,7 +92,7 @@ const InfluencerIcon: FunctionComponent<{ icon: string; link: string }> = ({
   link,
 }) => {
   return (
-    <li className="h-[42px] w-[42px]">
+    <li className="h-[38px] w-[38px] sm:h-[42px] sm:w-[42px]">
       <a
         rel="noopener noreferrer"
         target="_blank"
@@ -102,33 +106,51 @@ const InfluencerIcon: FunctionComponent<{ icon: string; link: string }> = ({
 };
 
 const InfluencerInfoSection = () => {
+  const scrollToJobSearch = () => {
+    const id = document.getElementById("job-search-area");
+    if (!id) return;
+    id.scrollIntoView({ behavior: "smooth" });
+  };
   return (
-    <div className="flex flex-col lg:flex-row w-full items-center justify-between">
+    <div className="flex flex-col md:flex-row items-start justify-between">
       <div>
-        <h2 className="font-sora text-[48px] leading-[60px] lg:text-[100px] lg:leading-[100px] tracking-[-0.03em] text-center lg:text-left">
+        <h2 className="font-sora text-[48px] leading-[60px] lg:text-[100px] lg:leading-[100px] tracking-[-0.03em] text-center md:text-left">
           <span className="font-[600]">Great jobs</span>{" "}
           <br className="lg:hidden block" /> by{" "}
           <br className="hidden lg:block" />
           Abril Zucchi
         </h2>
-        <p className="pt-[31px] font-mono text-[12px] md:text-[20px] leading-[16px] md:leading-[26px] tracking-[-0.02em] text-[#DADADA] lg:text-left text-center">
+        <p className="pt-[31px] font-mono text-[12px] md:text-[16px] lg:text-[20px] leading-[16px] md:leading-[20px] lg:leading-[26px] tracking-[-0.02em] text-[#DADADA] md:text-left text-center">
           We flip the script on recruiting...
           <br />
           no more small finder&apos;s fees, we&apos;re paying you
           <br />
           serious amounts of cash for your endorsement!
         </p>
-        <div className="mt-8 lg:block flex items-center justify-center">
-          <button className="bg-dorse flex h-[52px] w-[304px] items-center justify-center rounded-full hover-opacity-80">
-            <p className="font-mono text-base font-[700] leading-[21px]">
-              FIND JOBS AND ENDORSE
+        <div className="mt-8 md:block flex flex-col gap-3 items-center justify-center">
+          <button
+            onClick={scrollToJobSearch}
+            className="bg-transparent border flex sm:hidden h-[38px] sm:h-[52px] w-[189px] sm:w-[304px] items-center justify-center rounded-full hover-opacity-80"
+          >
+            <p className="font-mono text-[11px] sm:text-base font-[700] leading-[21px]">
+              BROWSE SKILLS
             </p>
           </button>
+          <a
+            href={appendReferralToLink(WEBSITE.SIGNIN)}
+            target="_self"
+            rel="noopener noreferrer"
+            className="bg-dorse flex h-[38px] sm:h-[52px] w-[189px] sm:w-[304px] items-center justify-center rounded-full hover-opacity-80"
+          >
+            <p className="font-mono text-[11px] sm:text-base font-[700] leading-[21px]">
+              FIND JOBS AND ENDORSE
+            </p>
+          </a>
         </div>
       </div>
       <Img
         src="/image/influencer.png"
-        className="h-[423px] w-[356px] lg:block hidden"
+        className="h-[320px] md:block lg:h-[423px] hidden"
       />
     </div>
   );

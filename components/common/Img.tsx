@@ -25,8 +25,8 @@ export function Img({
       style={style}
       src={src}
       alt={alt}
-      placeholder={placeholder || "/icons/generic/loading-spin.svg"}
-      error={error || "/icons/generic/missing-icon.svg"}
+      placeholder={placeholder || "/icons/loading-spin.svg"}
+      error={error || "/icons/missing-icon.svg"}
       className={className}
       retry={retrySettings}
     />
