@@ -1,5 +1,5 @@
 export const Influencer = {
-  ID: "6b296acc-0a35-4bdd-8d60-6695e6cfc461",
+  ID: "abril_zucchi",
   NAME: "Abril Zucchi",
   INFO: "Solidity Blockchain Developer made in Buenos Aires, web3 builder and crypto enthusiast",
   TWITTER: "https://twitter.com/abruzuc",
