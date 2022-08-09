@@ -1,8 +1,10 @@
 import { WEBSITE } from "@/constants/app-constants";
+import { useProcessLoggedIn } from "@/hooks/useProcessLoggedIn";
 // TODO : get the top header name from process env or somewhere configurable
 import { appendReferralToLink } from "@/utils/scripts";
 
 export const Header = () => {
+  const loggedIn = useProcessLoggedIn();
   return (
     <>
       <div className="absolute top-0 flex h-[35px] md:h-[41px] w-full items-center justify-center bg-[#7E48D9]">
@@ -17,20 +19,22 @@ export const Header = () => {
           className="h-[28px] md:h-[37px]"
         />
         <div className="gap-2 flex items-center gap-3">
-          <a
-            href={appendReferralToLink(WEBSITE.SIGNIN)}
-            target="_self"
-            rel="noopener noreferrer"
-            className="flex h-[38px] md:h-[46px] w-[85px] md:w-[168px] items-center justify-center gap-1.5 rounded-full border hover-opacity-80"
-          >
-            <img
-              className="hidden md:block w-[18px] h-[18px]"
-              src="/icons/sign-out.svg"
-            />
-            <p className="font-mono text-[11px] md:text-[14px] leading-[18px]">
-              LOGIN
-            </p>
-          </a>
+          {!loggedIn && (
+            <a
+              href={appendReferralToLink(WEBSITE.SIGNIN)}
+              target="_self"
+              rel="noopener noreferrer"
+              className="flex h-[38px] md:h-[46px] w-[85px] md:w-[168px] items-center justify-center gap-1.5 rounded-full border hover-opacity-80"
+            >
+              <img
+                className="hidden md:block w-[18px] h-[18px]"
+                src="/icons/sign-out.svg"
+              />
+              <p className="font-mono text-[11px] md:text-[14px] leading-[18px]">
+                LOGIN
+              </p>
+            </a>
+          )}
           <a
             href={appendReferralToLink(WEBSITE.FINDJOBS)}
             target="_self"
