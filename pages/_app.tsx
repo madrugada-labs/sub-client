@@ -9,27 +9,34 @@ import Script from "next/script";
 
 import { Influencer } from "@/constants/app-constants";
 import { GraphQLProvider } from "@/context/GraphQLProvider";
+import { AuthContext, useProcessLoggedIn } from "@/hooks/useProcessLoggedIn";
 import { initPackages } from "@/utils/init";
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     initPackages();
   }, []);
+  const loggedIn = useProcessLoggedIn();
   return (
     <GraphQLProvider>
-      <Head>
-        <title>Dorse x {Influencer.NAME}</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
-      <Script
-        defer
-        data-domain={Influencer.DOMAIN}
-        src="https://plausible.io/js/plausible.js"
-        strategy="lazyOnload"
-      />
-      <div className="min-h-[100vh] min-w-[100vw] bg-bg">
-        <Component {...pageProps} />
-      </div>
+      <AuthContext.Provider value={{ loggedIn }}>
+        <Head>
+          <title>Dorse x {Influencer.NAME}</title>
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+          />
+        </Head>
+        <Script
+          defer
+          data-domain={Influencer.DOMAIN}
+          src="https://plausible.io/js/plausible.js"
+          strategy="lazyOnload"
+        />
+        <div className="min-h-[100vh] min-w-[100vw] bg-bg">
+          <Component {...pageProps} />
+        </div>
+      </AuthContext.Provider>
     </GraphQLProvider>
   );
 }

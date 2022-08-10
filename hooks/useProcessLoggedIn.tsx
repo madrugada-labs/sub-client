@@ -1,12 +1,16 @@
-import { useEffect, useState } from "react";
-import { singletonHook } from "react-singleton-hook";
+import { createContext, useContext, useEffect, useState } from "react";
 
 import { useRouter } from "next/router";
 
-const useProcessLoggedInImpl = () => {
+// hacked up context
+export const AuthContext = createContext({ loggedIn: false });
+export const useAuth = () => useContext(AuthContext);
+
+export const useProcessLoggedIn = () => {
   const router = useRouter();
   const [loggedIn, setLoggedIn] = useState(false);
   useEffect(() => {
+    if (!router?.isReady) return;
     if (router.query.loggedIn === "true") {
       setLoggedIn(true);
       router.replace(
@@ -20,8 +24,6 @@ const useProcessLoggedInImpl = () => {
         }
       );
     }
-  }, [router.query]);
+  }, [router?.query, router]);
   return loggedIn;
 };
-
-export const useProcessLoggedIn = singletonHook(null, useProcessLoggedInImpl);

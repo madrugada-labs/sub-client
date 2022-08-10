@@ -31,7 +31,6 @@
     "react-cool-img": "^1.2.12",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.34.0",
-    "react-singleton-hook": "^4.0.0",
     "react-textarea-autosize": "^8.3.4",
     "react-toastify": "^9.0.7",
     "react-twitter-embed": "^4.0.4",

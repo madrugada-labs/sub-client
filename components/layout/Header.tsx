@@ -1,10 +1,10 @@
 import { WEBSITE } from "@/constants/app-constants";
-import { useProcessLoggedIn } from "@/hooks/useProcessLoggedIn";
+import { useAuth, useProcessLoggedIn } from "@/hooks/useProcessLoggedIn";
 // TODO : get the top header name from process env or somewhere configurable
 import { appendReferralToLink } from "@/utils/scripts";
 
 export const Header = () => {
-  const loggedIn = useProcessLoggedIn();
+  const { loggedIn } = useAuth();
   return (
     <>
       <div className="absolute top-0 flex h-[35px] md:h-[41px] w-full items-center justify-center bg-[#7E48D9]">

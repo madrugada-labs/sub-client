@@ -9,7 +9,7 @@ import { Header } from "@/components/layout/Header";
 import { JobSearch } from "@/components/pages/home/JobSearch";
 import { TwitterPosts } from "@/components/pages/home/TwitterPost";
 import { Influencer, WEBSITE } from "@/constants/app-constants";
-import { useProcessLoggedIn } from "@/hooks/useProcessLoggedIn";
+import { useAuth, useProcessLoggedIn } from "@/hooks/useProcessLoggedIn";
 import { appendReferralToLink } from "@/utils/scripts";
 
 const Home: NextPage = () => {
@@ -37,7 +37,7 @@ const Home: NextPage = () => {
 };
 
 const MakeYouEndorse = () => {
-  const loggedIn = useProcessLoggedIn();
+  const { loggedIn } = useAuth();
   return (
     <div className="flex flex-col items-center gap-[34px]">
       <h3 className="font-sora font-[600] text-[16px] sm:text-[28px] leading-[20px] sm:leading-[35px] tracking-[-0.03em]">
@@ -139,7 +139,7 @@ const InfluencerIcon: FunctionComponent<{ icon: string; link: string }> = ({
 };
 
 const InfluencerInfoSection = () => {
-  const loggedIn = useProcessLoggedIn();
+  const { loggedIn } = useAuth();
   const scrollToJobSearch = () => {
     const id = document.getElementById("job-search-area");
     if (!id) return;
