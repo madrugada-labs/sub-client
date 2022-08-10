@@ -4523,6 +4523,11 @@ react-is@^16.13.1, react-is@^16.7.0:
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-singleton-hook@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/react-singleton-hook/-/react-singleton-hook-4.0.0.tgz#a1e1273410b5ba4669c51d5962d218443ff616e2"
+  integrity sha512-VZ5qWDU8xMQw3TC9Z22VEKck/6jPVAAG3op6mm+Nq/BTzlKMRZIOH8z331GdI00Zh+8IZ0sIWCxTdk1ca+NIMA==
+
 react-textarea-autosize@^8.3.4:
   version "8.3.4"
   resolved "https://registry.npmjs.org/react-textarea-autosize/-/react-textarea-autosize-8.3.4.tgz"

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
+import { singletonHook } from "react-singleton-hook";
 
 import { useRouter } from "next/router";
 
-export const useProcessLoggedIn = () => {
+const useProcessLoggedInImpl = () => {
   const router = useRouter();
   const [loggedIn, setLoggedIn] = useState(false);
-  console.log(router.query);
   useEffect(() => {
     if (router.query.loggedIn === "true") {
       setLoggedIn(true);
@@ -23,3 +23,5 @@ export const useProcessLoggedIn = () => {
   }, [router.query]);
   return loggedIn;
 };
+
+export const useProcessLoggedIn = singletonHook(null, useProcessLoggedInImpl);

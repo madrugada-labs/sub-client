@@ -9,6 +9,7 @@ import { Header } from "@/components/layout/Header";
 import { JobSearch } from "@/components/pages/home/JobSearch";
 import { TwitterPosts } from "@/components/pages/home/TwitterPost";
 import { Influencer, WEBSITE } from "@/constants/app-constants";
+import { useProcessLoggedIn } from "@/hooks/useProcessLoggedIn";
 import { appendReferralToLink } from "@/utils/scripts";
 
 const Home: NextPage = () => {
@@ -36,13 +37,18 @@ const Home: NextPage = () => {
 };
 
 const MakeYouEndorse = () => {
+  const loggedIn = useProcessLoggedIn();
   return (
     <div className="flex flex-col items-center gap-[34px]">
       <h3 className="font-sora font-[600] text-[16px] sm:text-[28px] leading-[20px] sm:leading-[35px] tracking-[-0.03em]">
         If you don&apos;t endorse, someone else will...
       </h3>
       <a
-        href={appendReferralToLink(WEBSITE.SIGNIN)}
+        href={
+          loggedIn
+            ? appendReferralToLink(WEBSITE.FINDJOBS)
+            : appendReferralToLink(WEBSITE.SIGNIN)
+        }
         target="_self"
         rel="noopener noreferrer"
         className="bg-dorse px-[55px] py-4 rounded-full hover-opacity-80"
@@ -133,11 +139,13 @@ const InfluencerIcon: FunctionComponent<{ icon: string; link: string }> = ({
 };
 
 const InfluencerInfoSection = () => {
+  const loggedIn = useProcessLoggedIn();
   const scrollToJobSearch = () => {
     const id = document.getElementById("job-search-area");
     if (!id) return;
     id.scrollIntoView({ behavior: "smooth" });
   };
+
   return (
     <div className="flex flex-col md:flex-row items-start justify-between">
       <div>
@@ -164,7 +172,11 @@ const InfluencerInfoSection = () => {
             </p>
           </button>
           <a
-            href={appendReferralToLink(WEBSITE.SIGNIN)}
+            href={
+              loggedIn
+                ? appendReferralToLink(WEBSITE.FINDJOBS)
+                : appendReferralToLink(WEBSITE.SIGNIN)
+            }
             target="_self"
             rel="noopener noreferrer"
             className="bg-dorse flex h-[38px] sm:h-[52px] w-[189px] sm:w-[304px] items-center justify-center rounded-full hover-opacity-80"
