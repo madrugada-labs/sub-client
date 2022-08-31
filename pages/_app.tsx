@@ -17,27 +17,27 @@ function MyApp({ Component, pageProps }: AppProps) {
     initPackages();
   }, []);
   const loggedIn = useProcessLoggedIn();
+  const title = `Dorse x ${Influencer.NAME}`;
   return (
-    <GraphQLProvider>
-      <AuthContext.Provider value={{ loggedIn }}>
-        <Head>
-          <title>Dorse x {Influencer.NAME}</title>
-          <meta
-            name="viewport"
-            content="initial-scale=1.0, width=device-width"
-          />
-        </Head>
-        <Script
-          defer
-          data-domain={Influencer.DOMAIN}
-          src="https://plausible.io/js/plausible.js"
-          strategy="lazyOnload"
-        />
-        <div className="min-h-[100vh] min-w-[100vw] bg-bg">
-          <Component {...pageProps} />
-        </div>
-      </AuthContext.Provider>
-    </GraphQLProvider>
+    <>
+      <Head>
+        <title>{title}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <Script
+        defer
+        data-domain={Influencer.DOMAIN}
+        src="https://plausible.io/js/plausible.js"
+        strategy="lazyOnload"
+      />
+      <GraphQLProvider>
+        <AuthContext.Provider value={{ loggedIn }}>
+          <div className="min-h-[100vh] min-w-[100vw] bg-bg">
+            <Component {...pageProps} />
+          </div>
+        </AuthContext.Provider>
+      </GraphQLProvider>
+    </>
   );
 }
 

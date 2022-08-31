@@ -1,18 +1,12 @@
 import { FunctionComponent } from "react";
 import { TwitterTweetEmbed } from "react-twitter-embed";
 
-import { Img } from "@/components/common/Img";
+import { Influencer } from "@/constants/app-constants";
 
-// TODO : refactor into consts file
-const posts = [
-  "1460390066816180227",
-  "1458455617459339264",
-  "1513591400343953420",
-];
 export const TwitterPosts: FunctionComponent = () => {
   return (
     <ul className="flex items-start gap-[34px]">
-      {posts.map((id) => (
+      {Influencer.POSTS.map((id) => (
         <TwitterPost key={id} id={id} />
       ))}
     </ul>
