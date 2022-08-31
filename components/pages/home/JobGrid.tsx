@@ -37,7 +37,7 @@ const JobCard: FunctionComponent<{ data: JobPublicFragment }> = ({ data }) => {
       <div className="min-h-[290px] w-full flex flex-col justify-between">
         <div>
           <div className="flex items-start justify-between h-[54px] sm:h-[88px]">
-            <figure className="flex items-center justify-center min-w-[110px] h-[54px] min-w-[10z0px] sm:h-[88px]">
+            <figure className="flex items-center justify-center min-w-[110px] h-[54px] sm:h-[88px]">
               <Img
                 className="min-w-[20px] max-w-[70px] sm:max-w-[100px] max-h-[54px] sm:max-h-[88px] rounded-[7px]"
                 src={data.company?.photoUrl as string}
