@@ -109,7 +109,9 @@ const AboutWithTwitterPosts = () => {
         </div>
         <ul className="flex items-center gap-[14px] justify-center">
           <InfluencerIcon icon={"twitter.png"} link={Influencer.TWITTER} />
-          <InfluencerIcon icon={"github.png"} link={Influencer.GITHUB} />
+          {Influencer.GITHUB !== "" && (
+            <InfluencerIcon icon={"github.png"} link={Influencer.GITHUB} />
+          )}
           <InfluencerIcon icon={"linkedin.png"} link={Influencer.LINKEDIN} />
         </ul>
       </div>
