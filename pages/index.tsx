@@ -92,11 +92,11 @@ const MoneyEarnInfo = () => {
 const AboutWithTwitterPosts = () => {
   return (
     <div className="flex flex-col items-center sm:grid sm:grid-cols-[351px,min-content] sm:overflow-auto gap-16 sm:gap-[34px] hide-scrollbar w-[100vw] sm:pl-[2vw]">
-      <div className="flex h-[236px] sm:h-[300px] max-w-[351px] md:w-full flex-col justify-between rounded-2xl border border-[#D9D9D9] px-3 sm:px-6 pt-9 pb-[31px] sm:pb-6">
-        <div className="flex justify-between items-start gap-[18px]">
+      <div className="flex max-w-[351px] md:w-full flex-col justify-between rounded-2xl border border-[#D9D9D9] px-3 sm:px-6 pt-9 pb-[31px] sm:pb-6">
+        <div className="flex justify-between items-start gap-[18px] mb-[55px]">
           <Img
             className="sm:hidden block max-h-[100px]"
-            src="/image/influencer_small.png"
+            src={`/image/${Influencer.NAME}_small.png`}
           />
           <div>
             <h4 className="font-sora text-[24px] sm:text-[28px] leading-[30px] sm:leading-[35px] tracking-[-0.03em]">
@@ -188,7 +188,7 @@ const InfluencerInfoSection = () => {
         </div>
       </div>
       <Img
-        src="/image/influencer.png"
+        src={`/image/${Influencer.NAME}.png`}
         className="h-[320px] md:block lg:h-[423px] hidden"
       />
     </div>
